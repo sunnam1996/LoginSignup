@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+  		<h2 class="navbar-brand mb-0 ml-4">Welcome to QuizApp</h2>
+      <a href="/accounts/logout/" class="btn btn-primary">Logout</a>
+	</nav>
+	<div class="row m-4">
+
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">Add Category</h5>
+    <p class="card-text">You Can Add new Category of a Quiz.</p>
+    <a href="/postcategory" class="btn btn-primary">Add Category</a>
+    </div>
+  </div>
+	
+	<div class="card m-4" style="width: 18rem;">
+  	<div class="card-body">
+    <h5 class="card-title">Add Question</h5>
+    <p class="card-text">You Can Add new Questions to Quiz Application Here.</p>
+    <a href="/postquestion" class="btn btn-primary">Add Question</a>
+  	</div>
+	</div>
+        <div class="card m-4" style="width: 18rem;">
+  	<div class="card-body">
+    <h5 class="card-title">View Questions</h5>
+    <p class="card-text">You Can View the Questions that you have added.</p>
+    <a href="/viewquestions" class="btn btn-primary">View Questions</a>
+  	</div>
+	</div>
+
+	<div class="card m-4" style="width: 18rem;">
+  	<div class="card-body">
+    <h5 class="card-title">View History</h5>
+    <p class="card-text">You can see the history of users here.</p>
+    <a href="/viewhistory" class="btn btn-primary">View History</a>
+  	</div>
+	</div>
+        <div class="card m-4" style="width: 18rem;">
+  	<div class="card-body">
+    <h5 class="card-title">View Category</h5>
+    <p class="card-text">You can see the Posted Categorys here.</p>
+    <a href="/viewcategory" class="btn btn-primary">View Category</a>
+  	</div>
+	</div>
+
+	</div>
+
+
+
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+</body>
+</html>

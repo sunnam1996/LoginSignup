@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questions Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-light">
+  		<h2 class="navbar-brand mb-0 ml-4">Welcome to QuizApp</h2>
+      <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="btn btn-primary" href="/updateprofile">UpdateProfile</a>
+          <a class="btn btn-primary" href="/accounts/logout">Logout <span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+	</nav>
+{% if user.is_authenticated %}
+<div class="jumbotron">
+<div class="row">
+<div class="col-8">
+  <h1 class="display-4">Hello, {{user.username }}!</h1>
+  <p class="lead">Now you can take quiz on different categories and can showcase your talent.</p>
+    <p>Click below to start your journey.</p>
+</div>
+    <div class="row placeholders col-4">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <img src="{{user.profile_image.url}}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+    </div>
+</div>
+</div>
+  <hr class="my-4">
+
+
+
+  <div class="row m-4">
+{% for category in categories %}
+  <div class="card m-4" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">{{category}}</h5>
+    <p class="card-text">Click here to start quiz on {{category}}.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'takequiz' category.id %}" role="button">Take Quiz</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="card m-4" style="width: 18rem;">
+  	<div class="card-body">
+    <h5 class="card-title">View History</h5>
+    <p class="card-text">click here to see your quiz history.</p>
+    <a href="{% url 'userhistory' user.id %}" class="btn btn-primary">View History</a>
+  	</div>
+	</div>
+
+
+</div>
+{% else %}
+
+<h2>You have to login,<a href="/accounts/login/">Click Here</a></h2>
+{% endif %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{questiondetails.question}}<br>
+{% for choice in questiondetails.choice_set.all %}
+{{choice}}<br>
+{% endfor %}
+</body>
+</html>
